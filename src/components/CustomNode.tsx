@@ -8,7 +8,7 @@ interface CustomNodeData {
   description?: string;
 }
 
-const CustomNode = ({ data, isConnectable, selected }: NodeProps<CustomNodeData>) => {
+const CustomNode = ({ data, isConnectable, selected }: NodeProps) => {
   return (
     <div className={cn(
       "px-4 py-2 rounded-lg border-2 shadow-md bg-white min-w-[180px]",

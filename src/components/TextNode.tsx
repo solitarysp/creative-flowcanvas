@@ -7,7 +7,7 @@ interface TextNodeData {
   description?: string;
 }
 
-const TextNode = ({ data, isConnectable, selected }: NodeProps<TextNodeData>) => {
+const TextNode = ({ data, isConnectable, selected }: NodeProps) => {
   return (
     <div className={cn(
       "px-4 py-3 rounded-lg border-2 shadow-md min-w-[180px] max-w-[300px]",

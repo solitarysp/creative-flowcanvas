@@ -1,4 +1,3 @@
-
 import { useState, useCallback, useRef } from 'react';
 import {
   ReactFlow,
@@ -23,6 +22,7 @@ import WorkflowNode from './WorkflowNode';
 import FeatureNode from './FeatureNode';
 import ImageNode from './ImageNode';
 import TextNode from './TextNode';
+import VideoNode from './VideoNode';
 import NodeCreationDialog from './NodeCreationDialog';
 import { initialNodes, initialEdges } from '../data/flowData';
 
@@ -33,6 +33,7 @@ const nodeTypes: NodeTypes = {
   featureNode: FeatureNode,
   imageNode: ImageNode,
   textNode: TextNode,
+  videoNode: VideoNode,
 };
 
 const FloraFlow = () => {

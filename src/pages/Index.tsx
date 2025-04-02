@@ -11,7 +11,7 @@ const Index = () => {
           <li>Click "Add Node" to create new nodes</li>
           <li>Drag from handles to connect nodes</li>
           <li>Select a node and click trash icon to delete</li>
-          <li>Add text or images to your diagram</li>
+          <li>Add text, images, or videos to your diagram</li>
           <li>Drag nodes to reposition them</li>
         </ul>
       </div>

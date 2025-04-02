@@ -22,6 +22,10 @@ const NodeCreationDialog = ({ onCreateNode }: NodeCreationDialogProps) => {
   const [imageUrl, setImageUrl] = useState('');
   const [imageLabel, setImageLabel] = useState('');
   
+  // Video node state
+  const [videoUrl, setVideoUrl] = useState('');
+  const [videoLabel, setVideoLabel] = useState('');
+  
   // Custom node state
   const [nodeLabel, setNodeLabel] = useState('');
   const [nodeSubtitle, setNodeSubtitle] = useState('');
@@ -38,6 +42,13 @@ const NodeCreationDialog = ({ onCreateNode }: NodeCreationDialogProps) => {
       });
       setImageUrl('');
       setImageLabel('');
+    } else if (activeTab === 'video' && videoUrl) {
+      onCreateNode('videoNode', { 
+        videoUrl, 
+        label: videoLabel 
+      });
+      setVideoUrl('');
+      setVideoLabel('');
     } else if (activeTab === 'custom' && nodeLabel) {
       onCreateNode(nodeType, { 
         label: nodeLabel, 
@@ -63,9 +74,10 @@ const NodeCreationDialog = ({ onCreateNode }: NodeCreationDialogProps) => {
         </DialogHeader>
         
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid grid-cols-3 mb-4">
+          <TabsList className="grid grid-cols-4 mb-4">
             <TabsTrigger value="text">Text</TabsTrigger>
             <TabsTrigger value="image">Image</TabsTrigger>
+            <TabsTrigger value="video">Video</TabsTrigger>
             <TabsTrigger value="custom">Custom</TabsTrigger>
           </TabsList>
           
@@ -104,6 +116,31 @@ const NodeCreationDialog = ({ onCreateNode }: NodeCreationDialogProps) => {
                   value={imageLabel} 
                   onChange={(e) => setImageLabel(e.target.value)} 
                   placeholder="Image Label" 
+                  className="w-full mt-1"
+                />
+              </div>
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="video">
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="videoUrl">Video URL</Label>
+                <Input 
+                  id="videoUrl"
+                  value={videoUrl} 
+                  onChange={(e) => setVideoUrl(e.target.value)} 
+                  placeholder="https://example.com/video.mp4" 
+                  className="w-full mt-1"
+                />
+              </div>
+              <div>
+                <Label htmlFor="videoLabel">Label (Optional)</Label>
+                <Input 
+                  id="videoLabel"
+                  value={videoLabel} 
+                  onChange={(e) => setVideoLabel(e.target.value)} 
+                  placeholder="Video Label" 
                   className="w-full mt-1"
                 />
               </div>
