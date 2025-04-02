@@ -2,7 +2,13 @@
 import { Handle, Position, NodeProps } from '@xyflow/react';
 import { cn } from '@/lib/utils';
 
-const WorkflowNode = ({ data, isConnectable, selected }: NodeProps) => {
+interface WorkflowNodeData {
+  label: string;
+  steps?: string[];
+  description?: string;
+}
+
+const WorkflowNode = ({ data, isConnectable, selected }: NodeProps<WorkflowNodeData>) => {
   return (
     <div className={cn(
       "px-4 py-3 rounded-lg border-2 shadow-md min-w-[220px]",

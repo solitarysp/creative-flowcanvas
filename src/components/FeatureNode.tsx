@@ -2,7 +2,13 @@
 import { Handle, Position, NodeProps } from '@xyflow/react';
 import { cn } from '@/lib/utils';
 
-const FeatureNode = ({ data, isConnectable, selected }: NodeProps) => {
+interface FeatureNodeData {
+  label: string;
+  subtitle?: string;
+  description?: string;
+}
+
+const FeatureNode = ({ data, isConnectable, selected }: NodeProps<FeatureNodeData>) => {
   return (
     <div className={cn(
       "px-4 py-3 rounded-lg border-2 shadow-md min-w-[180px]",

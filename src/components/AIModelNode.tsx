@@ -2,7 +2,13 @@
 import { Handle, Position, NodeProps } from '@xyflow/react';
 import { cn } from '@/lib/utils';
 
-const AIModelNode = ({ data, isConnectable, selected }: NodeProps) => {
+interface AIModelNodeData {
+  label: string;
+  subtitle?: string;
+  description?: string;
+}
+
+const AIModelNode = ({ data, isConnectable, selected }: NodeProps<AIModelNodeData>) => {
   return (
     <div className={cn(
       "px-4 py-3 rounded-lg border-2 shadow-md min-w-[200px]",

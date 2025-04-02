@@ -2,7 +2,13 @@
 import { Handle, Position, NodeProps } from '@xyflow/react';
 import { cn } from '@/lib/utils';
 
-const CustomNode = ({ data, isConnectable, selected }: NodeProps) => {
+interface CustomNodeData {
+  label: string;
+  subtitle?: string;
+  description?: string;
+}
+
+const CustomNode = ({ data, isConnectable, selected }: NodeProps<CustomNodeData>) => {
   return (
     <div className={cn(
       "px-4 py-2 rounded-lg border-2 shadow-md bg-white min-w-[180px]",
